@@ -82,9 +82,11 @@ class Table {
         ($driver === null) && $driver = self::$defaultDriver;
         
         // Se não houver nenhum dos dois aí temos um problema
-        ($driver === null) && throw new Exception(
-            'Nenhum driver disponível para o objeto Db_Table'
-        );
+        if($driver === null) {
+            throw new Exception(
+                'Nenhum driver disponível para o objeto Db_Table'
+            );
+        }
         
         $this->setDriver($driver);
     }
