@@ -350,28 +350,28 @@ class Row implements IteratorAggregate, ArrayAccess {
 	 * @see ArrayAccess::offsetSet()
 	 */
 	public function offsetSet($offset, $value) {
-		$this->set($column, $value);
+		$this->set($offset, $value);
 	}
 
 	/**
 	 * @see ArrayAccess::offsetGet()
 	 */
 	public function offsetGet($offset) {
-		return $this->get($column);
+		return $this->get($offset);
 	}
 
 	/**
 	 * @see ArrayAccess::offsetExists()
 	 */
 	public function offsetExists($offset) {
-		return $this->has($column);
+		return $this->has($offset);
 	}
 
 	/**
 	 * @see ArrayAccess::offsetUnset()
 	 */
 	public function offsetUnset($offset) {
-		$this->verifyColumn($column);
+		$this->verifyColumn($offset);
 		$this->set(offset, null);
 	}
 
